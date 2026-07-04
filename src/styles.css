@@ -47,8 +47,8 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.58;
-  filter: saturate(0.72) contrast(1.12) brightness(0.62);
+  opacity: 0.7;
+  filter: saturate(0.68) contrast(1.08) brightness(0.66);
 }
 
 .hero::before {
@@ -57,8 +57,8 @@ a {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(5, 6, 6, 0.88) 0%, rgba(5, 6, 6, 0.54) 45%, rgba(5, 6, 6, 0.8) 100%),
-    linear-gradient(180deg, rgba(5, 6, 6, 0.22) 0%, rgba(5, 6, 6, 0.92) 100%);
+    linear-gradient(180deg, rgba(230, 235, 231, 0.94) 0%, rgba(215, 228, 225, 0.66) 24%, rgba(5, 6, 6, 0.04) 48%, rgba(5, 6, 6, 0.78) 100%),
+    linear-gradient(90deg, rgba(5, 6, 6, 0.42) 0%, rgba(5, 6, 6, 0.02) 44%, rgba(5, 6, 6, 0.34) 100%);
 }
 
 .grain {
@@ -75,7 +75,7 @@ a {
 }
 
 .nav {
-  height: 92px;
+  height: 86px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,22 +84,24 @@ a {
 }
 
 .brand {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 750;
   letter-spacing: 0;
+  color: rgba(5, 6, 6, 0.82);
 }
 
 .navLinks {
   display: flex;
-  gap: 34px;
+  gap: 30px;
   align-items: center;
-  color: rgba(242, 244, 240, 0.72);
-  font-size: 15px;
+  color: rgba(5, 6, 6, 0.64);
+  font-size: 14px;
+  font-weight: 650;
 }
 
 .navLinks a:hover,
 .contactButton:hover {
-  color: #ffffff;
+  color: #050606;
 }
 
 .contactButton {
@@ -108,9 +110,10 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(242, 244, 240, 0.26);
+  border: 1px solid rgba(5, 6, 6, 0.16);
   border-radius: 999px;
-  background: rgba(242, 244, 240, 0.06);
+  color: rgba(5, 6, 6, 0.78);
+  background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(18px);
 }
 
@@ -118,8 +121,15 @@ a {
   min-height: calc(100vh - 92px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 7vh;
+  justify-content: space-between;
+  padding: 7vh 0 6vh;
+}
+
+.heroTitleBlock {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #050606;
 }
 
 .eyebrow,
@@ -131,28 +141,75 @@ a {
   letter-spacing: 0;
 }
 
+.hero .eyebrow {
+  margin-bottom: 18px;
+  color: rgba(5, 6, 6, 0.62);
+  font-size: 14px;
+}
+
 .hero h1 {
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0;
-  font-size: clamp(80px, 6.6vw, 126px);
-  line-height: 0.98;
+  font-size: clamp(118px, 10.4vw, 206px);
+  line-height: 0.82;
   letter-spacing: 0;
-  font-weight: 650;
+  font-weight: 780;
+}
+
+.hero h1 span {
+  display: block;
+  font-size: 0.43em;
+  line-height: 0.96;
+  font-weight: 760;
+}
+
+.heroLead {
+  max-width: 620px;
+  margin: 28px auto 0;
+  color: rgba(5, 6, 6, 0.78);
+  font-size: 32px;
+  line-height: 1.28;
+  font-weight: 750;
+}
+
+.heroBottom {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1fr) auto;
+  align-items: end;
+  gap: 36px;
+  color: #f2f4f0;
+}
+
+.heroBottom strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 760;
+}
+
+.heroBottom div > span {
+  display: block;
+  max-width: 420px;
+  color: rgba(242, 244, 240, 0.78);
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .heroMeta {
-  margin-top: 54px;
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
   color: rgba(242, 244, 240, 0.76);
+  justify-content: flex-end;
 }
 
 .heroMeta span {
   padding: 10px 15px;
   border: 1px solid rgba(242, 244, 240, 0.14);
   border-radius: 999px;
-  background: rgba(5, 6, 6, 0.38);
+  background: rgba(5, 6, 6, 0.28);
+  backdrop-filter: blur(16px);
 }
 
 .section {

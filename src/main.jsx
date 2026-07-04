@@ -80,12 +80,29 @@ function App() {
           </a>
         </nav>
         <div className="heroContent shell">
-          <p className="eyebrow">VISUAL DESIGNER / AI DESIGNER / BRAND DESIGNER</p>
-          <h1>用克制的视觉秩序，构建面向未来的品牌体验。</h1>
-          <div className="heroMeta">
-            <span>Shanghai / Remote</span>
-            <span>Brand Identity</span>
-            <span>AI Visual System</span>
+          <div className="heroTitleBlock">
+            <p className="eyebrow">VISUAL / AI / BRAND DESIGNER</p>
+            <h1>
+              DESIGN
+              <span>FOR FUTURE</span>
+            </h1>
+            <p className="heroLead">
+              用克制的视觉秩序，构建面向未来的品牌体验。
+            </p>
+          </div>
+          <div className="heroBottom">
+            <div>
+              <strong>AI 视觉系统</strong>
+              <span>从概念探索到可落地的品牌资产</span>
+            </div>
+            <div>
+              <strong>品牌识别设计</strong>
+              <span>以策略、版式和光影建立清晰记忆点</span>
+            </div>
+            <div className="heroMeta">
+              <span>Shanghai / Remote</span>
+              <span>Available 2026</span>
+            </div>
           </div>
         </div>
       </section>
