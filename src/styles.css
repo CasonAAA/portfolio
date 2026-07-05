@@ -290,6 +290,25 @@ a {
     linear-gradient(135deg, #08090b, #10141b 58%, #2f3130);
 }
 
+.standaloneFinding {
+  padding-top: 48px;
+}
+
+.backLink {
+  min-height: 42px;
+  margin-bottom: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(245, 245, 247, 0.72);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.backLink:hover {
+  color: #fff;
+}
+
 .findingHeader {
   align-items: start;
 }
@@ -360,7 +379,8 @@ a {
 
 .fieldRow span,
 .ownerSummary span,
-.textAreaField span {
+.textAreaField span,
+.selectField span {
   color: rgba(245, 245, 247, 0.55);
   font-size: 13px;
   font-weight: 750;
@@ -370,6 +390,29 @@ a {
   color: rgba(245, 245, 247, 0.94);
   font-size: 17px;
   line-height: 1.5;
+}
+
+.selectField {
+  min-height: 92px;
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.selectField select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  outline: none;
+  color: #f5f5f7;
+  background: rgba(0, 0, 0, 0.32);
+  font: inherit;
+  font-weight: 800;
 }
 
 .statusLine {
@@ -444,6 +487,43 @@ a {
   box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
 }
 
+.uploadDropzone {
+  min-height: 132px;
+  margin-top: 14px;
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 8px;
+  border: 1px dashed rgba(103, 199, 255, 0.52);
+  border-radius: 18px;
+  color: rgba(245, 245, 247, 0.76);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.18), transparent 18rem),
+    rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.uploadDropzone input {
+  display: none;
+}
+
+.uploadDropzone svg {
+  color: #67c7ff;
+}
+
+.uploadDropzone strong {
+  color: #f5f5f7;
+  font-size: 18px;
+}
+
+.uploadDropzone span {
+  max-width: 520px;
+  color: rgba(245, 245, 247, 0.5);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .formActions {
   margin-top: 18px;
   display: flex;
@@ -454,6 +534,9 @@ a {
 .formActions button {
   min-height: 44px;
   padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
   color: #f5f5f7;

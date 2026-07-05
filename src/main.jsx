@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, BadgeCheck, CalendarClock, ClipboardList, Factory, Leaf, ShieldCheck, UserCheck, UsersRound } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BadgeCheck, CalendarClock, ClipboardList, Factory, Leaf, Paperclip, ShieldCheck, UploadCloud, UserCheck, UsersRound } from 'lucide-react';
 import './styles.css';
 
 const auditStats = [
@@ -11,10 +11,9 @@ const auditStats = [
 ];
 
 const publisherFields = [
-  ['缺失项描述', '客户来访发现 EHS 培训签到记录与现场人员名单不一致，部分新进员工缺少最近一次 CSR/COC 培训证明。'],
-  ['客户 COC 条款', 'Labor & Human Rights / Training and Communication / Supplier Responsibility Standard'],
-  ['问题等级', 'Core Violation'],
-  ['责任人 DRI', 'EHS 负责人 · 张伟'],
+  ['缺失项描述', '废活性炭未按照危险废弃物管理要求及时转运处置，且存在露天临时堆放情形，未采取充分防雨、防渗漏及标识隔离措施，可能造成挥发性有机物逸散、雨水冲刷渗漏及周边环境污染风险。'],
+  ['客户 COC 条款', 'Environmental Protection / Hazardous Waste Management / Pollution Prevention'],
+  ['责任人 DRI', 'XX 人员'],
   ['整改完成日期', '2026-07-30'],
 ];
 
@@ -41,7 +40,115 @@ const csrCards = [
   },
 ];
 
+function VisitFindingPage() {
+  return (
+    <main>
+      <section className="findingSection standaloneFinding">
+        <div className="shell">
+          <a className="backLink" href="#home">
+            <ArrowLeft size={20} strokeWidth={1.6} />
+            返回 CSR 首页
+          </a>
+          <div className="sectionHeader findingHeader">
+            <div>
+              <p className="kicker">VISIT FINDING TRACKER</p>
+              <h2>客户来访缺失项目处理</h2>
+            </div>
+            <p>发布者定义问题边界与客户条款，责任单位提交原因分析、改善措施、预防措施及附件证据，形成可追踪的闭环记录。</p>
+          </div>
+          <div className="findingGrid">
+            <article className="workspaceCard publisherPanel">
+              <div className="workspaceTitle">
+                <ClipboardList size={30} strokeWidth={1.5} />
+                <div>
+                  <span>Publisher Console</span>
+                  <h3>发布者后台</h3>
+                </div>
+              </div>
+              <div className="fieldStack">
+                {publisherFields.map(([label, value]) => (
+                  <div className="fieldRow" key={label}>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+                <label className="selectField">
+                  <span>问题等级</span>
+                  <select defaultValue="Violation">
+                    <option>Violation</option>
+                    <option>Core Violation</option>
+                    <option>观察项</option>
+                  </select>
+                </label>
+              </div>
+              <div className="statusLine">
+                <span className="severityTag">Violation</span>
+                <span>待责任单位提交 RCA / CA / PA 与证据附件</span>
+              </div>
+            </article>
+
+            <article className="workspaceCard ownerPanel">
+              <div className="workspaceTitle">
+                <UserCheck size={30} strokeWidth={1.5} />
+                <div>
+                  <span>Responsible Unit</span>
+                  <h3>责任单位界面</h3>
+                </div>
+              </div>
+              <div className="ownerSummary">
+                <div><span>责任 DRI</span><strong>XX 人员</strong></div>
+                <div><span>完成日期</span><strong>2026-07-30</strong></div>
+                <div><span>问题等级</span><strong>Violation</strong></div>
+              </div>
+              <label className="textAreaField">
+                <span>根本原因分析</span>
+                <textarea placeholder="请输入根本原因，例如：危废暂存区容量规划不足、转运排程未及时触发、现场巡检未覆盖临时堆放风险..." />
+              </label>
+              <label className="textAreaField">
+                <span>改善措施</span>
+                <textarea placeholder="请输入立即改善措施，例如：将露天废活性炭转移至合规危废暂存区，补充防渗托盘、标签和台账，并联系有资质单位转运处置..." />
+              </label>
+              <label className="textAreaField">
+                <span>预防措施</span>
+                <textarea placeholder="请输入长期预防措施，例如：建立危废库存预警、固定转运频率、增加 EHS 巡检点检项，并每月复核处置联单和现场照片..." />
+              </label>
+              <label className="uploadDropzone">
+                <input type="file" multiple />
+                <UploadCloud size={34} strokeWidth={1.4} />
+                <strong>拖拽上传整改附件</strong>
+                <span>支持现场照片、危废转运联单、台账记录、培训签到表等证据文件</span>
+              </label>
+              <div className="formActions">
+                <button type="button"><Paperclip size={18} /> 保存草稿</button>
+                <button type="button" className="primaryAction">提交整改</button>
+              </div>
+            </article>
+          </div>
+          <div className="timelineStrip">
+            <div><BadgeCheck size={22} /><span>问题发布</span></div>
+            <div><UserCheck size={22} /><span>责任单位分析</span></div>
+            <div><CalendarClock size={22} /><span>整改到期跟踪</span></div>
+            <div><ShieldCheck size={22} /><span>证据复核关闭</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 function App() {
+  const [route, setRoute] = useState(window.location.hash);
+
+  useEffect(() => {
+    const updateRoute = () => setRoute(window.location.hash);
+    window.addEventListener('hashchange', updateRoute);
+    return () => window.removeEventListener('hashchange', updateRoute);
+  }, []);
+
+  if (route === '#/visit-finding') {
+    return <VisitFindingPage />;
+  }
+
   return (
     <main>
       <section className="hero" id="home">
@@ -80,7 +187,7 @@ function App() {
               集中管理客户来访期间发现的缺失项、责任部门、整改证据与关闭时效，让每一次接待后的改善都有清晰路径。
             </p>
           </div>
-          <a className="visitPortal" href="#visit-finding" aria-label="进入客户来访缺失项目看板">
+          <a className="visitPortal" href="#/visit-finding" aria-label="进入客户来访缺失项目看板">
             <div className="portalTop">
               <ClipboardList size={34} strokeWidth={1.5} />
               <span>进入看板</span>
@@ -92,78 +199,6 @@ function App() {
               <ArrowRight size={26} strokeWidth={1.4} />
             </div>
           </a>
-        </div>
-      </section>
-
-      <section className="findingSection" id="visit-finding">
-        <div className="shell">
-          <div className="sectionHeader findingHeader">
-            <div>
-              <p className="kicker">VISIT FINDING TRACKER</p>
-              <h2>客户来访缺失项目处理</h2>
-            </div>
-            <p>发布者定义问题边界与客户条款，责任单位提交原因分析、改善措施和预防措施，形成可追踪的闭环记录。</p>
-          </div>
-          <div className="findingGrid">
-            <article className="workspaceCard publisherPanel">
-              <div className="workspaceTitle">
-                <ClipboardList size={30} strokeWidth={1.5} />
-                <div>
-                  <span>Publisher Console</span>
-                  <h3>发布者后台</h3>
-                </div>
-              </div>
-              <div className="fieldStack">
-                {publisherFields.map(([label, value]) => (
-                  <div className="fieldRow" key={label}>
-                    <span>{label}</span>
-                    <strong>{value}</strong>
-                  </div>
-                ))}
-              </div>
-              <div className="statusLine">
-                <span className="severityTag">Core Violation</span>
-                <span>待责任单位提交 RCA / CA / PA</span>
-              </div>
-            </article>
-
-            <article className="workspaceCard ownerPanel">
-              <div className="workspaceTitle">
-                <UserCheck size={30} strokeWidth={1.5} />
-                <div>
-                  <span>Responsible Unit</span>
-                  <h3>责任单位界面</h3>
-                </div>
-              </div>
-              <div className="ownerSummary">
-                <div><span>责任 DRI</span><strong>EHS 负责人 · 张伟</strong></div>
-                <div><span>完成日期</span><strong>2026-07-30</strong></div>
-                <div><span>问题等级</span><strong>Core Violation</strong></div>
-              </div>
-              <label className="textAreaField">
-                <span>根本原因分析</span>
-                <textarea placeholder="请输入根本原因，例如：培训资料同步机制缺失、跨部门入职信息传递不及时..." />
-              </label>
-              <label className="textAreaField">
-                <span>改善措施</span>
-                <textarea placeholder="请输入立即改善措施，例如：补齐培训记录、重新组织未覆盖人员培训、上传证据..." />
-              </label>
-              <label className="textAreaField">
-                <span>预防措施</span>
-                <textarea placeholder="请输入长期预防措施，例如：建立月度名单校验、系统提醒、责任人复核机制..." />
-              </label>
-              <div className="formActions">
-                <button type="button">保存草稿</button>
-                <button type="button" className="primaryAction">提交整改</button>
-              </div>
-            </article>
-          </div>
-          <div className="timelineStrip">
-            <div><BadgeCheck size={22} /><span>问题发布</span></div>
-            <div><UserCheck size={22} /><span>责任单位分析</span></div>
-            <div><CalendarClock size={22} /><span>整改到期跟踪</span></div>
-            <div><ShieldCheck size={22} /><span>证据复核关闭</span></div>
-          </div>
         </div>
       </section>
 
