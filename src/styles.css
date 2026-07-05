@@ -280,6 +280,217 @@ a {
   font-size: 20px;
 }
 
+.findingSection {
+  min-height: 100vh;
+  padding: 112px 0;
+  color: #f5f5f7;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(0, 113, 227, 0.22), transparent 32rem),
+    radial-gradient(circle at 86% 28%, rgba(103, 199, 255, 0.12), transparent 28rem),
+    linear-gradient(135deg, #08090b, #10141b 58%, #2f3130);
+}
+
+.findingHeader {
+  align-items: start;
+}
+
+.findingGrid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 22px;
+}
+
+.workspaceCard {
+  min-height: 680px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+}
+
+.publisherPanel {
+  background:
+    linear-gradient(180deg, rgba(0, 113, 227, 0.16), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.workspaceTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.workspaceTitle svg {
+  color: #67c7ff;
+}
+
+.workspaceTitle span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(245, 245, 247, 0.56);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.workspaceTitle h3 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.08;
+}
+
+.fieldStack {
+  display: grid;
+  gap: 12px;
+}
+
+.fieldRow {
+  min-height: 92px;
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.fieldRow span,
+.ownerSummary span,
+.textAreaField span {
+  color: rgba(245, 245, 247, 0.55);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.fieldRow strong {
+  color: rgba(245, 245, 247, 0.94);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.statusLine {
+  margin-top: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(245, 245, 247, 0.68);
+  font-size: 14px;
+}
+
+.severityTag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: #ff453a;
+  font-weight: 800;
+}
+
+.ownerSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ownerSummary div {
+  min-height: 92px;
+  padding: 16px;
+  display: grid;
+  align-content: space-between;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.ownerSummary strong {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.textAreaField {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.textAreaField textarea {
+  width: 100%;
+  min-height: 118px;
+  resize: vertical;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  outline: none;
+  color: #f5f5f7;
+  background: rgba(0, 0, 0, 0.24);
+  font: inherit;
+  line-height: 1.55;
+}
+
+.textAreaField textarea::placeholder {
+  color: rgba(245, 245, 247, 0.34);
+}
+
+.textAreaField textarea:focus {
+  border-color: rgba(103, 199, 255, 0.76);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
+}
+
+.formActions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.formActions button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #f5f5f7;
+  background: rgba(255, 255, 255, 0.08);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.formActions .primaryAction {
+  border-color: #0071e3;
+  background: #0071e3;
+}
+
+.timelineStrip {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.timelineStrip div {
+  min-height: 74px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 18px;
+  color: rgba(245, 245, 247, 0.76);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timelineStrip svg {
+  color: #67c7ff;
+}
+
 .auditSection {
   background:
     radial-gradient(circle at 16% 22%, rgba(0, 113, 227, 0.2), transparent 30rem),

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, BadgeCheck, ClipboardList, Factory, Leaf, ShieldCheck, UsersRound } from 'lucide-react';
+import { ArrowRight, BadgeCheck, CalendarClock, ClipboardList, Factory, Leaf, ShieldCheck, UserCheck, UsersRound } from 'lucide-react';
 import './styles.css';
 
 const auditStats = [
@@ -8,6 +8,14 @@ const auditStats = [
   ['96.8%', '客户审核通过率'],
   ['342', '问题项累计关闭'],
   ['17', '高风险事项跟踪'],
+];
+
+const publisherFields = [
+  ['缺失项描述', '客户来访发现 EHS 培训签到记录与现场人员名单不一致，部分新进员工缺少最近一次 CSR/COC 培训证明。'],
+  ['客户 COC 条款', 'Labor & Human Rights / Training and Communication / Supplier Responsibility Standard'],
+  ['问题等级', 'Core Violation'],
+  ['责任人 DRI', 'EHS 负责人 · 张伟'],
+  ['整改完成日期', '2026-07-30'],
 ];
 
 const csrCards = [
@@ -72,7 +80,7 @@ function App() {
               集中管理客户来访期间发现的缺失项、责任部门、整改证据与关闭时效，让每一次接待后的改善都有清晰路径。
             </p>
           </div>
-          <a className="visitPortal" href="#audit" aria-label="进入客户来访缺失项目看板">
+          <a className="visitPortal" href="#visit-finding" aria-label="进入客户来访缺失项目看板">
             <div className="portalTop">
               <ClipboardList size={34} strokeWidth={1.5} />
               <span>进入看板</span>
@@ -84,6 +92,78 @@ function App() {
               <ArrowRight size={26} strokeWidth={1.4} />
             </div>
           </a>
+        </div>
+      </section>
+
+      <section className="findingSection" id="visit-finding">
+        <div className="shell">
+          <div className="sectionHeader findingHeader">
+            <div>
+              <p className="kicker">VISIT FINDING TRACKER</p>
+              <h2>客户来访缺失项目处理</h2>
+            </div>
+            <p>发布者定义问题边界与客户条款，责任单位提交原因分析、改善措施和预防措施，形成可追踪的闭环记录。</p>
+          </div>
+          <div className="findingGrid">
+            <article className="workspaceCard publisherPanel">
+              <div className="workspaceTitle">
+                <ClipboardList size={30} strokeWidth={1.5} />
+                <div>
+                  <span>Publisher Console</span>
+                  <h3>发布者后台</h3>
+                </div>
+              </div>
+              <div className="fieldStack">
+                {publisherFields.map(([label, value]) => (
+                  <div className="fieldRow" key={label}>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+              </div>
+              <div className="statusLine">
+                <span className="severityTag">Core Violation</span>
+                <span>待责任单位提交 RCA / CA / PA</span>
+              </div>
+            </article>
+
+            <article className="workspaceCard ownerPanel">
+              <div className="workspaceTitle">
+                <UserCheck size={30} strokeWidth={1.5} />
+                <div>
+                  <span>Responsible Unit</span>
+                  <h3>责任单位界面</h3>
+                </div>
+              </div>
+              <div className="ownerSummary">
+                <div><span>责任 DRI</span><strong>EHS 负责人 · 张伟</strong></div>
+                <div><span>完成日期</span><strong>2026-07-30</strong></div>
+                <div><span>问题等级</span><strong>Core Violation</strong></div>
+              </div>
+              <label className="textAreaField">
+                <span>根本原因分析</span>
+                <textarea placeholder="请输入根本原因，例如：培训资料同步机制缺失、跨部门入职信息传递不及时..." />
+              </label>
+              <label className="textAreaField">
+                <span>改善措施</span>
+                <textarea placeholder="请输入立即改善措施，例如：补齐培训记录、重新组织未覆盖人员培训、上传证据..." />
+              </label>
+              <label className="textAreaField">
+                <span>预防措施</span>
+                <textarea placeholder="请输入长期预防措施，例如：建立月度名单校验、系统提醒、责任人复核机制..." />
+              </label>
+              <div className="formActions">
+                <button type="button">保存草稿</button>
+                <button type="button" className="primaryAction">提交整改</button>
+              </div>
+            </article>
+          </div>
+          <div className="timelineStrip">
+            <div><BadgeCheck size={22} /><span>问题发布</span></div>
+            <div><UserCheck size={22} /><span>责任单位分析</span></div>
+            <div><CalendarClock size={22} /><span>整改到期跟踪</span></div>
+            <div><ShieldCheck size={22} /><span>证据复核关闭</span></div>
+          </div>
         </div>
       </section>
 
