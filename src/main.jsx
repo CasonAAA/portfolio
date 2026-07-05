@@ -1,188 +1,146 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, AtSign, Bot, Layers3, Mail, MapPin, PenTool, Sparkles } from 'lucide-react';
+import { ArrowRight, BadgeCheck, ClipboardList, Factory, Leaf, ShieldCheck, UsersRound } from 'lucide-react';
 import './styles.css';
 
-const projects = [
-  {
-    title: 'AI Fashion Identity System',
-    type: 'AI Visual / Brand Direction',
-    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=85',
-  },
-  {
-    title: 'Future Lab Campaign',
-    type: 'Visual Campaign / Key Visual',
-    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1800&q=85',
-  },
-  {
-    title: 'Minimal Tech Brand Refresh',
-    type: 'Brand Identity / System Design',
-    image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=85',
-  },
+const auditStats = [
+  ['128', '全年累计客户审核'],
+  ['96.8%', '客户审核通过率'],
+  ['342', '问题项累计关闭'],
+  ['17', '高风险事项跟踪'],
 ];
 
-const strengths = [
+const csrCards = [
   {
-    icon: PenTool,
-    title: '视觉系统设计',
-    text: '从品牌气质、版式秩序到视觉资产延展，建立稳定且可持续复用的设计语言。',
+    title: '人权与劳工权益',
+    text: '覆盖工作时间、薪酬福利、自由择业、反歧视与员工沟通机制。',
+    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1500&q=85',
   },
   {
-    icon: Bot,
-    title: 'AI 创意工作流',
-    text: '将 AI 图像生成、概念推演与后期精修融入项目流程，提升探索效率和画面完成度。',
+    title: '环境与碳管理',
+    text: '跟踪能源、水资源、废弃物、排放与改善项目，支持年度目标闭环。',
+    image: 'https://images.unsplash.com/photo-1497436072909-f5e4be1e9768?auto=format&fit=crop&w=1500&q=85',
   },
   {
-    icon: Layers3,
-    title: '品牌策略落地',
-    text: '把抽象定位转译为标识、色彩、材质、传播画面和线上体验中的一致表达。',
+    title: '职业健康安全',
+    text: '识别生产现场风险，推动隐患整改、培训记录和应急演练数字化。',
+    image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1500&q=85',
   },
   {
-    icon: Sparkles,
-    title: '高级感画面控制',
-    text: '擅长暗色体系、克制构图、光影层次和科技质感，兼顾审美判断与商业可用性。',
+    title: '供应商责任管理',
+    text: '沉淀客户准则、审核资料、整改证据和跨部门协同进度。',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1500&q=85',
   },
-];
-
-const stats = [
-  ['06+', '年设计经验'],
-  ['40+', '商业项目'],
-  ['12+', '品牌系统'],
-  ['AI', '设计工作流'],
 ];
 
 function App() {
   return (
     <main>
       <section className="hero" id="home">
-        <video
-          className="heroVideo"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=2200&q=85"
-        >
-          <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+        <video className="heroVideo" autoPlay muted loop playsInline>
+          <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         </video>
-        <div className="grain" />
+        <div className="heroShade" />
         <nav className="nav shell">
-          <a className="brand" href="#home">DESIGNER</a>
+          <a className="brand" href="#home">Supplier Care</a>
           <div className="navLinks" aria-label="主导航">
-            <a href="#about">经历</a>
-            <a href="#work">项目</a>
-            <a href="#strength">优势</a>
-            <a href="#contact">联系</a>
+            <a href="#visit">来访缺失</a>
+            <a href="#audit">审核数据</a>
+            <a href="#csr">CSR 管理</a>
           </div>
-          <a className="contactButton" href="mailto:hello@example.com">
-            联系我
-            <ArrowUpRight size={18} strokeWidth={1.8} />
-          </a>
+          <a className="yearPill" href="#audit">2026 年度总览</a>
         </nav>
-        <div className="heroContent shell">
-          <div className="heroTitleBlock">
-            <p className="eyebrow">VISUAL / AI / BRAND DESIGNER</p>
-            <h1>
-              DESIGN
-              <span>FOR FUTURE</span>
-            </h1>
-            <p className="heroLead">
-              用克制的视觉秩序，构建面向未来的品牌体验。
+        <div className="heroCenter shell">
+          <p>Corporate Social Responsibility</p>
+          <h1>以人为先，向善而行。</h1>
+          <h2>尊重人权，守护环境，让每一次供应链协作都经得起审视。</h2>
+        </div>
+        <div className="heroCaption shell">
+          <span>Human Rights</span>
+          <span>Environmental Stewardship</span>
+          <span>Responsible Supply Chain</span>
+        </div>
+      </section>
+
+      <section className="visitSection panelSection" id="visit">
+        <div className="shell splitLayout">
+          <div className="sectionCopy">
+            <p className="kicker">CUSTOMER VISIT</p>
+            <h2>客户来访缺失项目</h2>
+            <p>
+              集中管理客户来访期间发现的缺失项、责任部门、整改证据与关闭时效，让每一次接待后的改善都有清晰路径。
             </p>
           </div>
-          <div className="heroBottom">
-            <div>
-              <strong>AI 视觉系统</strong>
-              <span>从概念探索到可落地的品牌资产</span>
+          <a className="visitPortal" href="#audit" aria-label="进入客户来访缺失项目看板">
+            <div className="portalTop">
+              <ClipboardList size={34} strokeWidth={1.5} />
+              <span>进入看板</span>
             </div>
-            <div>
-              <strong>品牌识别设计</strong>
-              <span>以策略、版式和光影建立清晰记忆点</span>
+            <strong>Visit Finding Tracker</strong>
+            <p>24 个待关闭项目 · 7 个高优先级 · 平均关闭周期 12 天</p>
+            <div className="portalFooter">
+              <span>点击跳转</span>
+              <ArrowRight size={26} strokeWidth={1.4} />
             </div>
-            <div className="heroMeta">
-              <span>Shanghai / Remote</span>
-              <span>Available 2026</span>
-            </div>
-          </div>
+          </a>
         </div>
       </section>
 
-      <section className="about shell section" id="about">
-        <div className="portraitWrap">
-          <img
-            className="portrait"
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"
-            alt="设计师肖像"
-          />
-        </div>
-        <div className="aboutText">
-          <p className="sectionKicker">PROFILE</p>
-          <h2>视觉设计师，专注品牌系统、AI 视觉与高级感商业画面。</h2>
-          <p>
-            我将品牌策略、视觉美学与 AI 创意流程结合，擅长为科技、时尚、生活方式和新消费品牌建立具有识别度的视觉表达。
-            目前这版内容为基础占位，后续可根据你的真实简历替换经历、数据、客户类型和项目描述。
-          </p>
-          <div className="infoGrid">
-            <a href="mailto:hello@example.com"><Mail size={18} /> hello@example.com</a>
-            <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><AtSign size={18} /> Behance / Portfolio</a>
-            <span><MapPin size={18} /> China / Global Remote</span>
+      <section className="auditSection panelSection" id="audit">
+        <div className="shell">
+          <div className="sectionHeader">
+            <div>
+              <p className="kicker">AUDIT PERFORMANCE</p>
+              <h2>全年客户审核概览</h2>
+            </div>
+            <p>以数据监控客户审核频次、通过率和问题关闭质量，支持管理层快速判断 CSR 风险趋势。</p>
           </div>
-          <div className="stats">
-            {stats.map(([value, label]) => (
-              <div className="stat" key={label}>
+          <div className="metricGrid">
+            {auditStats.map(([value, label]) => (
+              <article className="metricCard" key={label}>
                 <strong>{value}</strong>
                 <span>{label}</span>
-              </div>
+              </article>
             ))}
+          </div>
+          <div className="auditInsight">
+            <div>
+              <BadgeCheck size={34} strokeWidth={1.4} />
+              <h3>审核表现稳定</h3>
+              <p>关键客户审核通过率维持在高位，问题项关闭节奏可追踪，高风险事项纳入专项复盘。</p>
+            </div>
+            <div className="progressStack">
+              <span style={{ width: '96.8%' }}>通过率 96.8%</span>
+              <span style={{ width: '78%' }}>准时关闭率 78%</span>
+              <span style={{ width: '64%' }}>预防措施完成率 64%</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section shell" id="work">
-        <div className="sectionHeader">
-          <p className="sectionKicker">SELECTED WORK</p>
-          <h2>精选项目</h2>
-        </div>
-        <div className="projectGrid">
-          {projects.map((project) => (
-            <article className="projectCard" key={project.title}>
-              <img src={project.image} alt={project.title} />
-              <div className="projectOverlay">
-                <span>{project.type}</span>
-                <h3>{project.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section shell" id="strength">
-        <div className="sectionHeader">
-          <p className="sectionKicker">CAPABILITY</p>
-          <h2>个人优势</h2>
-        </div>
-        <div className="strengthGrid">
-          {strengths.map(({ icon: Icon, title, text }) => (
-            <article className="strengthCard" key={title}>
-              <Icon size={30} strokeWidth={1.4} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="contactFinal" id="contact">
-        <div className="shell contactInner">
-          <p className="sectionKicker">CONTACT</p>
-          <h2>期待与你一起创造更具识别度的视觉系统。</h2>
-          <a className="bigMail" href="mailto:hello@example.com">
-            hello@example.com
-            <ArrowUpRight size={36} strokeWidth={1.4} />
-          </a>
-          <div className="footerLine">
-            <span>Available for brand identity, AI visual, campaign design.</span>
-            <span>© 2026 Portfolio</span>
+      <section className="csrSection" id="csr">
+        <div className="shell">
+          <div className="sectionHeader csrHeader">
+            <div>
+              <p className="kicker">CSR MANAGEMENT</p>
+              <h2>CSR 管理展示</h2>
+            </div>
+            <p>围绕人员、环境、安全与供应链责任，建立可展示、可追踪、可复盘的管理内容。</p>
+          </div>
+          <div className="csrGrid">
+            {csrCards.map((card, index) => (
+              <article className={`csrCard card${index + 1}`} key={card.title}>
+                <img src={card.image} alt={card.title} />
+                <div className="cardOverlay">
+                  {index === 0 && <UsersRound size={28} strokeWidth={1.5} />}
+                  {index === 1 && <Leaf size={28} strokeWidth={1.5} />}
+                  {index === 2 && <ShieldCheck size={28} strokeWidth={1.5} />}
+                  {index === 3 && <Factory size={28} strokeWidth={1.5} />}
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
