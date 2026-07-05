@@ -17,7 +17,7 @@ const csrCards = [
     image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1500&q=85',
   },
   {
-    title: '环境与碳管理',
+    title: '环境管理',
     text: '跟踪能源、水资源、废弃物、排放与改善项目，支持年度目标闭环。',
     image: 'https://images.unsplash.com/photo-1497436072909-f5e4be1e9768?auto=format&fit=crop&w=1500&q=85',
   },
@@ -27,7 +27,7 @@ const csrCards = [
     image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1500&q=85',
   },
   {
-    title: '供应商责任管理',
+    title: '供应商管理体系',
     text: '沉淀客户准则、审核资料、整改证据和跨部门协同进度。',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1500&q=85',
   },
@@ -37,9 +37,7 @@ function App() {
   return (
     <main>
       <section className="hero" id="home">
-        <video className="heroVideo" autoPlay muted loop playsInline>
-          <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-        </video>
+        <div className="techBackdrop" />
         <div className="heroShade" />
         <nav className="nav shell">
           <a className="brand" href="#home">Supplier Care</a>
@@ -52,8 +50,8 @@ function App() {
         </nav>
         <div className="heroCenter shell">
           <p>Corporate Social Responsibility</p>
-          <h1>以人为先，向善而行。</h1>
-          <h2>尊重人权，守护环境，让每一次供应链协作都经得起审视。</h2>
+          <h1>以人为本 合规运行</h1>
+          <h2>让立臻的每次审核都有据可循，让责任、环境与人权承诺贯穿供应链日常。</h2>
         </div>
         <div className="heroCaption shell">
           <span>Human Rights</span>
@@ -123,7 +121,7 @@ function App() {
           <div className="sectionHeader csrHeader">
             <div>
               <p className="kicker">CSR MANAGEMENT</p>
-              <h2>CSR 管理展示</h2>
+              <h2>CSR 合规管理</h2>
             </div>
             <p>围绕人员、环境、安全与供应链责任，建立可展示、可追踪、可复盘的管理内容。</p>
           </div>
