@@ -140,7 +140,15 @@ function App() {
   const [route, setRoute] = useState(window.location.hash);
 
   useEffect(() => {
-    const updateRoute = () => setRoute(window.location.hash);
+    const updateRoute = () => {
+      if (window.location.hash === '#/visit-finding' && sessionStorage.getItem('visitFindingAccess') !== 'true') {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#home`);
+        setRoute('#home');
+        return;
+      }
+      setRoute(window.location.hash);
+    };
+    updateRoute();
     window.addEventListener('hashchange', updateRoute);
     return () => window.removeEventListener('hashchange', updateRoute);
   }, []);
@@ -187,7 +195,12 @@ function App() {
               集中管理客户来访期间发现的缺失项、责任部门、整改证据与关闭时效，让每一次接待后的改善都有清晰路径。
             </p>
           </div>
-          <a className="visitPortal" href="#/visit-finding" aria-label="进入客户来访缺失项目看板">
+          <a
+            className="visitPortal"
+            href="#/visit-finding"
+            aria-label="进入客户来访缺失项目看板"
+            onClick={() => sessionStorage.setItem('visitFindingAccess', 'true')}
+          >
             <div className="portalTop">
               <ClipboardList size={34} strokeWidth={1.5} />
               <span>进入看板</span>
