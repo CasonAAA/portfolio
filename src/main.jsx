@@ -19,7 +19,7 @@ const csrCards = [
   {
     title: '环境管理',
     text: '跟踪能源、水资源、废弃物、排放与改善项目，支持年度目标闭环。',
-    image: 'https://images.unsplash.com/photo-1497436072909-f5e4be1e9768?auto=format&fit=crop&w=1500&q=85',
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=85',
   },
   {
     title: '职业健康安全',
@@ -37,10 +37,13 @@ function App() {
   return (
     <main>
       <section className="hero" id="home">
+        <video className="heroVideo" autoPlay muted loop playsInline>
+          <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        </video>
         <div className="techBackdrop" />
         <div className="heroShade" />
         <nav className="nav shell">
-          <a className="brand" href="#home">Supplier Care</a>
+          <a className="brand" href="#home">立臻责任供应链</a>
           <div className="navLinks" aria-label="主导航">
             <a href="#visit">来访缺失</a>
             <a href="#audit">审核数据</a>
