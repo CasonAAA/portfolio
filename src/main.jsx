@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowLeft, ArrowRight, BadgeCheck, CalendarClock, ClipboardList, Factory, Leaf, Paperclip, ShieldCheck, UploadCloud, UserCheck, UsersRound } from 'lucide-react';
 import './styles.css';
@@ -40,15 +40,15 @@ const csrCards = [
   },
 ];
 
-function VisitFindingPage() {
+function VisitFindingPage({ onBack }) {
   return (
     <main>
       <section className="findingSection standaloneFinding">
         <div className="shell">
-          <a className="backLink" href="#home">
+          <button className="backLink" type="button" onClick={onBack}>
             <ArrowLeft size={20} strokeWidth={1.6} />
             返回 CSR 首页
-          </a>
+          </button>
           <div className="sectionHeader findingHeader">
             <div>
               <p className="kicker">VISIT FINDING TRACKER</p>
@@ -137,24 +137,22 @@ function VisitFindingPage() {
 }
 
 function App() {
-  const [route, setRoute] = useState(window.location.hash);
+  const [activePage, setActivePage] = useState('home');
 
-  useEffect(() => {
-    const updateRoute = () => {
-      if (window.location.hash === '#/visit-finding' && sessionStorage.getItem('visitFindingAccess') !== 'true') {
-        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#home`);
-        setRoute('#home');
-        return;
-      }
-      setRoute(window.location.hash);
-    };
-    updateRoute();
-    window.addEventListener('hashchange', updateRoute);
-    return () => window.removeEventListener('hashchange', updateRoute);
-  }, []);
+  const openVisitFinding = (event) => {
+    event.preventDefault();
+    setActivePage('visit-finding');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  if (route === '#/visit-finding') {
-    return <VisitFindingPage />;
+  const backHome = () => {
+    setActivePage('home');
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (activePage === 'visit-finding') {
+    return <VisitFindingPage onBack={backHome} />;
   }
 
   return (
@@ -197,9 +195,9 @@ function App() {
           </div>
           <a
             className="visitPortal"
-            href="#/visit-finding"
+            href="/portfolio/"
             aria-label="进入客户来访缺失项目看板"
-            onClick={() => sessionStorage.setItem('visitFindingAccess', 'true')}
+            onClick={openVisitFinding}
           >
             <div className="portalTop">
               <ClipboardList size={34} strokeWidth={1.5} />
